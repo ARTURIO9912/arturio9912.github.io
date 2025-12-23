@@ -20,7 +20,7 @@
             width: 90%;
             max-width: 500px;
             z-index: 10;
-            filter: drop-shadow(0 0 30px rgba(255, 69, 0, 0.8));
+            filter: drop-shadow(0 0 40px rgba(255, 100, 0, 0.9));
         }
 
         .fire-overlay {
@@ -30,14 +30,15 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            box-shadow: inset 0 0 100px #f00, inset 0 0 200px #ff0;
+            /* Более сложный эффект огня */
+            box-shadow: inset 0 0 150px #f00, inset 0 0 300px #ff0, inset 0 0 500px #ffa500;
             opacity: 0;
             z-index: 5;
         }
 
         .active .fire-overlay {
             opacity: 1;
-            animation: burn 0.1s infinite alternate;
+            animation: burn 0.08s infinite alternate; /* Ускоренная анимация */
         }
 
         .active #character {
@@ -45,14 +46,14 @@
         }
 
         @keyframes burn {
-            0% { box-shadow: inset 0 0 100px #f40, inset 0 0 200px #ff0; }
-            100% { box-shadow: inset 0 0 200px #f00, inset 0 0 400px #fa0; }
+            0% { box-shadow: inset 0 0 100px #f40, inset 0 0 250px #ff0, inset 0 0 600px orange; }
+            100% { box-shadow: inset 0 0 200px #f00, inset 0 0 400px #fa0, inset 0 0 800px yellow; }
         }
 
         @keyframes shake {
-            0% { transform: scale(1.1) translate(10px, 10px); }
-            50% { transform: scale(1.2) translate(-10px, -10px); }
-            100% { transform: scale(1.15) translate(5px, -5px); }
+            0% { transform: scale(1.15) translate(15px, 15px); }
+            50% { transform: scale(1.25) translate(-15px, -15px); }
+            100% { transform: scale(1.2) translate(10px, -10px); }
         }
     </style>
 </head>
@@ -79,4 +80,3 @@
     </script>
 </body>
 </html>
-
