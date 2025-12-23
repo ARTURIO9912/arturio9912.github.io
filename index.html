@@ -16,16 +16,13 @@
             cursor: pointer;
         }
 
-        /* Тот самый персонаж из видео */
         #character {
             width: 90%;
             max-width: 500px;
             z-index: 10;
-            /* Улучшенная тень для объема */
             filter: drop-shadow(0 0 30px rgba(255, 69, 0, 0.8));
         }
 
-        /* Огонь по краям */
         .fire-overlay {
             position: fixed;
             top: 0;
@@ -38,7 +35,6 @@
             z-index: 5;
         }
 
-        /* Анимация при нажатии */
         .active .fire-overlay {
             opacity: 1;
             animation: burn 0.1s infinite alternate;
@@ -64,7 +60,7 @@
 
     <div class="fire-overlay"></div>
     
-    <img id="character" src="https://files.catbox.moe/57i25x.png">
+    <img id="character" src="ССЫЛКА_НА_ТВОЕ_ФОТО" alt="Tung Tung Sahur">
 
     <audio id="sound" src="https://files.catbox.moe/o65xi2.mp3"></audio>
 
@@ -76,7 +72,6 @@
             
             document.body.classList.add('active');
             
-            // Огонь исчезнет, когда музыка закончится
             audio.onended = () => {
                 document.body.classList.remove('active');
             };
