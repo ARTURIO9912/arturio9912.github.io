@@ -16,15 +16,16 @@
             cursor: pointer;
         }
 
-        /* Персонаж Тунг Тунг */
+        /* Тот самый персонаж из видео */
         #character {
-            width: 80%;
-            max-width: 400px;
+            width: 90%;
+            max-width: 500px;
             z-index: 10;
-            filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.5));
+            /* Улучшенная тень для объема */
+            filter: drop-shadow(0 0 30px rgba(255, 69, 0, 0.8));
         }
 
-        /* Эффект огня по краям (как в видео) */
+        /* Огонь по краям */
         .fire-overlay {
             position: fixed;
             top: 0;
@@ -37,26 +38,25 @@
             z-index: 5;
         }
 
-        /* Анимация при клике */
+        /* Анимация при нажатии */
         .active .fire-overlay {
             opacity: 1;
-            animation: burn 0.15s infinite alternate;
+            animation: burn 0.1s infinite alternate;
         }
 
         .active #character {
-            animation: shake 0.1s infinite;
+            animation: shake 0.05s infinite;
         }
 
         @keyframes burn {
-            0% { box-shadow: inset 0 0 80px #f40, inset 0 0 150px #ff0; }
-            100% { box-shadow: inset 0 0 150px #f00, inset 0 0 300px #fa0; }
+            0% { box-shadow: inset 0 0 100px #f40, inset 0 0 200px #ff0; }
+            100% { box-shadow: inset 0 0 200px #f00, inset 0 0 400px #fa0; }
         }
 
         @keyframes shake {
-            0% { transform: scale(1.1) translate(5px, 5px) rotate(0deg); }
-            33% { transform: scale(1.15) translate(-5px, -5px) rotate(2deg); }
-            66% { transform: scale(1.1) translate(5px, -5px) rotate(-2deg); }
-            100% { transform: scale(1.15) translate(-2px, 5px) rotate(0deg); }
+            0% { transform: scale(1.1) translate(10px, 10px); }
+            50% { transform: scale(1.2) translate(-10px, -10px); }
+            100% { transform: scale(1.15) translate(5px, -5px); }
         }
     </style>
 </head>
@@ -64,7 +64,7 @@
 
     <div class="fire-overlay"></div>
     
-    <img id="character" src="https://i.ytimg.com/vi/q7_6jG7479U/maxresdefault.jpg">
+    <img id="character" src="https://files.catbox.moe/57i25x.png">
 
     <audio id="sound" src="https://files.catbox.moe/o65xi2.mp3"></audio>
 
@@ -76,6 +76,7 @@
             
             document.body.classList.add('active');
             
+            // Огонь исчезнет, когда музыка закончится
             audio.onended = () => {
                 document.body.classList.remove('active');
             };
